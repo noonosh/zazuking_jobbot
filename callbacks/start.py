@@ -1,5 +1,13 @@
-from assets.texts import greeting
+from telegram import ReplyKeyboardMarkup
+from assets.texts import *
 from callbacks.utils import cursor, conn
+
+buttons = [
+    [PROJECT_MANAGER, MANAGER],
+    [EDUCATOR, NANNY],
+    [WHY_MANAGER, TEACHER],
+    [ASSISTANT, NURSE]
+]
 
 
 def start(update, context):
@@ -11,10 +19,12 @@ def start(update, context):
     if user_exists:
         return 1
     else:
-        print("user does not exist")
         cursor.execute("INSERT INTO users(user_id, full_name, username) VALUES ('{}', '{}', '{}')"
                        .format(chat_id, update.effective_user.full_name, update.effective_user.username))
         conn.commit()
 
-        context.bot.send_message(chat_id, greeting, parse_mode="HTML")
+        context.bot.send_message(chat_id,
+                                 greeting,
+                                 parse_mode="HTML",
+                                 reply_markup=ReplyKeyboardMarkup(buttons, resize_keyboard=True))
         return 1

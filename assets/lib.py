@@ -26,6 +26,10 @@ vacancy = {
     "why_manager": {
         "word": "Я менеджер почемучки",
         "link": "https://docs.google.com/forms/d/e/1FAIpQLSdA1cyNuhLN8zemGr2frA7V6WrrXhkIAkMxN0OfBWOx0UI6tw/viewform"
+    },
+    "nurse": {
+        "word": "Я медсестра",
+        "link": "https://forms.gle/pksLfUygGeLHqMzf9"
     }
 
 }
